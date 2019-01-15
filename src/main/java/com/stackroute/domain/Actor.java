@@ -15,6 +15,9 @@ public class Actor {
 //                '}';
 //    }
 
+    Actor(){
+        
+    }
         public String getName() {
             return name;
         }
