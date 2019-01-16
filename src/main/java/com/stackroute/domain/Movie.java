@@ -16,5 +16,10 @@ public class Movie {
         this.actor = actor;
     }
 
-
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "actor=" + actor +
+                '}';
+    }
 }
