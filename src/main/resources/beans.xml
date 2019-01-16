@@ -16,6 +16,11 @@
         <property name="age" value="22"></property>
     </bean>
 
+    <bean id="actor1" class="com.stackroute.domain.Actor" >
+        <constructor-arg name="name"  value="Deepika Padukone"></constructor-arg>
+        <constructor-arg name="gender" value="Female"></constructor-arg>
+        <constructor-arg name="age" value="33"></constructor-arg>
+    </bean>
 
 
 
@@ -42,7 +47,7 @@
         <property name="actor" ref="actor1"></property>
     </bean>
 
-    <bean id="movie2" class="com.stackroute.domain.Movie" scope="prototype">
+    <bean id="movie2" class="com.stackroute.domain.Movie" scope="singleton">
         <constructor-arg name="actor" ref="actor2"></constructor-arg>
     </bean>
 
