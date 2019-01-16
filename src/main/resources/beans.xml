@@ -11,9 +11,9 @@
     </bean>
     <!--creating bean for actor (property based injection)-->
     <bean id="actor" class="com.stackroute.domain.Actor">
-        <constructor-arg name="name" value="aishwarya"></constructor-arg>
-        <constructor-arg name="gender" value="female"></constructor-arg>
-        <constructor-arg name="age" value="22"></constructor-arg>
+        <property name="name" value="meghana"></property>
+        <property name="gender" value="female"></property>
+        <property name="age" value="22"></property>
     </bean>
 
 
@@ -23,7 +23,7 @@
         <constructor-arg name="actor" ref="actor1"></constructor-arg>
     </bean>
     <bean id="actor1" class="com.stackroute.domain.Actor">
-        <constructor-arg name="name" value="aishwarya"></constructor-arg>
+        <constructor-arg name="name" value="meghana"></constructor-arg>
         <constructor-arg name="gender" value="female"></constructor-arg>
         <constructor-arg name="age" value="22"></constructor-arg>
     </bean>
@@ -32,7 +32,7 @@
         <constructor-arg index="0" ref="actor2"></constructor-arg>
     </bean>
     <bean id="actor2" class="com.stackroute.domain.Actor">
-        <constructor-arg index="0" value="aishwarya"></constructor-arg>
+        <constructor-arg index="0" value="rahul"></constructor-arg>
         <constructor-arg index="1" value="female"></constructor-arg>
         <constructor-arg index="2" value="22"></constructor-arg>
     </bean>
@@ -41,16 +41,16 @@
         <constructor-arg index="0" ref="actor3"></constructor-arg>
     </bean>
     <bean id="actor3" class="com.stackroute.domain.Actor">
-        <constructor-arg type="String" value="aishwarya"></constructor-arg>
+        <constructor-arg type="String" value="hima"></constructor-arg>
         <constructor-arg type="String" value="female"></constructor-arg>
         <constructor-arg type="int" value="22"></constructor-arg>
     </bean>
-
+<!--bean having two values-->
     <bean name="movieA,movieB" class="com.stackroute.domain.Movie" scope="prototype">
         <constructor-arg index="0" ref="actorAB"></constructor-arg>
     </bean>
     <bean id="actorAB" class="com.stackroute.domain.Actor">
-        <constructor-arg type="String" value="aishwarya"></constructor-arg>
+        <constructor-arg type="String" value="meghana"></constructor-arg>
         <constructor-arg type="String" value="female"></constructor-arg>
         <constructor-arg type="int" value="22"></constructor-arg>
     </bean>
