@@ -14,32 +14,27 @@ import org.springframework.core.io.ClassPathResource;
 
 public class Main {
     public static void main(String[] args) {
-        // Using BeanFactory
-//        BeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource("beans.xml"));
-//        Movie movie = (Movie) beanFactory.getBean("movie");
-//        Actor actor = movie.getActor();
-//        System.out.println(actor.getName()+" "+actor.getAge()+" "+actor.getGender());
-//
-////        BeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource("beans.xml"));
-////        Movie movie = (Movie) beanFactory.getBean("movie");
-//////        System.out.println(movie.getActor());
-////        Actor actor=movie.getActor();
-////        System.out.println(actor.getAge()+" "+actor.getGender()+" "+actor.getName());
-//
-//
-//        // Using BeanDefination Registry and BeanDefination Reader
+        //Using XmlBeanFactory
+//        BeanFactory beanFactory=new XmlBeanFactory(new ClassPathResource("beans.xml"));
+//        Movie movie1=(Movie) beanFactory.getBean("movie1");
+//        System.out.println("Using XmlBeanFactory: "+ movie1.getActor());
 //
 //        //Using Spring 3.2 BeanDefinitionRegistry and BeanDefinitionReader
-//        BeanDefinitionRegistry beanDefinitionRegistry = new DefaultListableBeanFactory();
-//        BeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanDefinitionRegistry);
+//        BeanDefinitionRegistry beanDefinitionRegistry=new DefaultListableBeanFactory();
+//        BeanDefinitionReader beanDefinitionReader=new XmlBeanDefinitionReader(beanDefinitionRegistry);
 //        beanDefinitionReader.loadBeanDefinitions(new ClassPathResource("beans.xml"));
-//        Movie movie1 = ((DefaultListableBeanFactory) beanDefinitionRegistry).getBean(Movie.class);
-//        Actor actor1 = movie1.getActor();
-//        System.out.println(actor1.getName()+" "+actor1.getAge()+" "+actor1.getGender());
+//        Movie movie2=(Movie)((DefaultListableBeanFactory) beanDefinitionRegistry).getBean("movie1");
+//        System.out.println("Using Spring 3.2 BeanDefinitionRegistry and BeanDefinitionReader: "+movie2.getActor());
 //
         //Using ApplicationContext
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
-        Movie movie2 = (Movie) applicationContext.getBean("movie");
-        System.out.println(movie2.getActor());
+        ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
+        Movie movie3=(Movie) context.getBean("movie1");
+        System.out.println("Using ApplicationContext: "+ movie3.getActor());
+
+//        Movie movie4=(Movie) context.getBean("movie2");
+//        System.out.println(movie4.getActor());
+//
+//        Movie movie5=(Movie) context.getBean("movie3");
+//        System.out.println(movie5.getActor());
     }
 }

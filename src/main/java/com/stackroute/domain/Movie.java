@@ -13,10 +13,19 @@ public class Movie implements ApplicationContextAware, BeanFactoryAware, BeanNam
     public Actor getActor() {
         return actor;
     }
+    public Movie(){
+
+    }
+
+    Movie(Actor actor){
+        this.actor=actor;
+    }
 
     public void setActor(Actor actor) {
         this.actor = actor;
     }
+
+
 
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         Actor actorA= (Actor) applicationContext.getBean("actor2");
@@ -30,5 +39,12 @@ public class Movie implements ApplicationContextAware, BeanFactoryAware, BeanNam
 
     public void setBeanName(String s) {
         System.out.println("Bean name is "+s);
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "actor=" + actor +
+                '}';
     }
 }
