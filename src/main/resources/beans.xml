@@ -3,53 +3,57 @@
 <beans xmlns = "http://www.springframework.org/schema/beans"
        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation = "http://www.springframework.org/schema/beans
- http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" default-init-method="customInit" default-destroy-method="customDestroy">
+  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-
-    <bean id="actor" class="com.stackroute.domain.Actor" >
-        <property name="name" value="meghana"></property>
-        <property name="gender" value="female"></property>
-        <property name="age"  value="22" ></property>
-    </bean>
-
-    <bean id="movie" class="com.stackroute.domain.Movie">
+    <!--creating bean for movie (property based injection)-->
+    <bean id="movie" class="com.stackroute.domain.Movie" >
         <property name="actor" ref="actor"></property>
     </bean>
+    <!--creating bean for actor (property based injection)-->
+    <bean id="actor" class="com.stackroute.domain.Actor">
+        <constructor-arg name="name" value="aishwarya"></constructor-arg>
+        <constructor-arg name="gender" value="female"></constructor-arg>
+        <constructor-arg name="age" value="22"></constructor-arg>
+    </bean>
+
+
+
+    <!--creating 3 beans of actor (construction based injection)-->
+    <bean id="movie1" class="com.stackroute.domain.Movie">
+        <constructor-arg name="actor" ref="actor1"></constructor-arg>
+    </bean>
+    <bean id="actor1" class="com.stackroute.domain.Actor">
+        <constructor-arg name="name" value="aishwarya"></constructor-arg>
+        <constructor-arg name="gender" value="female"></constructor-arg>
+        <constructor-arg name="age" value="22"></constructor-arg>
+    </bean>
+
+    <bean id="movie2" class="com.stackroute.domain.Movie">
+        <constructor-arg index="0" ref="actor2"></constructor-arg>
+    </bean>
+    <bean id="actor2" class="com.stackroute.domain.Actor">
+        <constructor-arg index="0" value="aishwarya"></constructor-arg>
+        <constructor-arg index="1" value="female"></constructor-arg>
+        <constructor-arg index="2" value="22"></constructor-arg>
+    </bean>
+
+    <bean id="movie3" class="com.stackroute.domain.Movie" scope="prototype">
+        <constructor-arg index="0" ref="actor3"></constructor-arg>
+    </bean>
+    <bean id="actor3" class="com.stackroute.domain.Actor">
+        <constructor-arg type="String" value="aishwarya"></constructor-arg>
+        <constructor-arg type="String" value="female"></constructor-arg>
+        <constructor-arg type="int" value="22"></constructor-arg>
+    </bean>
+
+    <bean name="movieA,movieB" class="com.stackroute.domain.Movie" scope="prototype">
+        <constructor-arg index="0" ref="actorAB"></constructor-arg>
+    </bean>
+    <bean id="actorAB" class="com.stackroute.domain.Actor">
+        <constructor-arg type="String" value="aishwarya"></constructor-arg>
+        <constructor-arg type="String" value="female"></constructor-arg>
+        <constructor-arg type="int" value="22"></constructor-arg>
+    </bean>
+
+
 </beans>
-
-        <!--&lt;!&ndash;creating 3 beans of actor (construction based injection)&ndash;&gt;-->
-<!--<bean id="movie1" class="com.stackroute.domain.Movie">-->
-<!--<constructor-arg name="actor" ref="actor1"></constructor-arg>-->
-<!--</bean>-->
-<!--<bean id="actor1" class="com.stackroute.domain.Actor">-->
-<!--<constructor-arg name="name" value="aishwarya"></constructor-arg>-->
-<!--<constructor-arg name="gender" value="female"></constructor-arg>-->
-<!--<constructor-arg name="age" value="22"></constructor-arg>-->
-<!--</bean>-->
-
-<!--<bean id="movie2" class="com.stackroute.domain.Movie">-->
-<!--<constructor-arg index="0" ref="actor2"></constructor-arg>-->
-<!--</bean>-->
-<!--<bean id="actor2" class="com.stackroute.domain.Actor">-->
-<!--<constructor-arg index="0" value="aishwarya"></constructor-arg>-->
-<!--<constructor-arg index="1" value="female"></constructor-arg>-->
-<!--<constructor-arg index="2" value="22"></constructor-arg>-->
-<!--</bean>-->
-
-<!--<bean id="movie3" class="com.stackroute.domain.Movie" scope="prototype">-->
-<!--<constructor-arg index="0" ref="actor3"></constructor-arg>-->
-<!--</bean>-->
-<!--<bean id="actor3" class="com.stackroute.domain.Actor">-->
-<!--<constructor-arg type="String" value="aishwarya"></constructor-arg>-->
-<!--<constructor-arg type="String" value="female"></constructor-arg>-->
-<!--<constructor-arg type="int" value="22"></constructor-arg>-->
-<!--</bean>-->
-
-<!--<bean name="movieA,movieB" class="com.stackroute.domain.Movie" scope="prototype">-->
-<!--<constructor-arg index="0" ref="actorAB"></constructor-arg>-->
-<!--</bean>-->
-<!--<bean id="actorAB" class="com.stackroute.domain.Actor">-->
-<!--<constructor-arg type="String" value="aishwarya"></constructor-arg>-->
-<!--<constructor-arg type="String" value="female"></constructor-arg>-->
-<!--<constructor-arg type="int" value="22"></constructor-arg>-->
-<!--</bean>-->
