@@ -14,32 +14,28 @@ import org.springframework.core.io.ClassPathResource;
 
 public class Main {
     public static void main(String[] args) {
+        //Using XmlBeanFactory
+//        BeanFactory beanFactory=new XmlBeanFactory(new ClassPathResource("beans.xml"));
+//        Movie movie1=(Movie) beanFactory.getBean("movie1");
+//        System.out.println("Using XmlBeanFactory: "+ movie1.getActor());
+//
+//        //Using Spring 3.2 BeanDefinitionRegistry and BeanDefinitionReader
+//        BeanDefinitionRegistry beanDefinitionRegistry=new DefaultListableBeanFactory();
+//        BeanDefinitionReader beanDefinitionReader=new XmlBeanDefinitionReader(beanDefinitionRegistry);
+//        beanDefinitionReader.loadBeanDefinitions(new ClassPathResource("beans.xml"));
+//        Movie movie2=(Movie)((DefaultListableBeanFactory) beanDefinitionRegistry).getBean("movie1");
+//        System.out.println("Using Spring 3.2 BeanDefinitionRegistry and BeanDefinitionReader: "+movie2.getActor());
+//
         //Using ApplicationContext
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
-        Movie movie = (Movie) applicationContext.getBean("movie");
-        Actor actor = movie.getActor();
-        System.out.println(actor.getName()+" "+actor.getAge()+" "+actor.getGender());
+        ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
+        Movie movie3=(Movie) context.getBean("movie1");
+        System.out.println("Using ApplicationContext: "+ movie3.getActor());
 
-        Movie movie1 = (Movie) applicationContext.getBean("movie1");
-        Actor actor1 = movie1.getActor();
-        System.out.println(actor1.getName()+" "+actor1.getAge()+" "+actor1.getGender());
-
-        Movie movie2 = (Movie) applicationContext.getBean("movie2");
-        Actor actor2 = movie2.getActor();
-        System.out.println(actor2.getName()+" "+actor2.getAge()+" "+actor2.getGender());
-
-        Movie movie3 = (Movie) applicationContext.getBean("movie3");
-        Actor actor3 = movie3.getActor();
-        System.out.println(actor3.getName()+" "+actor3.getAge()+" "+actor3.getGender());
-
-        //System.out.println(movie2==movie3);
-        Movie movieA = (Movie) applicationContext.getBean("movieA");
-        Actor actorA = movie3.getActor();
-        System.out.println(actorA.getName()+" "+actorA.getAge()+" "+actorA.getGender());
-
-        Movie movieB = (Movie) applicationContext.getBean("movieB");
-        Actor actorB = movie3.getActor();
-        System.out.println(actorA.getName()+" "+actorA.getAge()+" "+actorA.getGender());
-
+//        Movie movie4=(Movie) context.getBean("movie2");
+//        System.out.println(movie4.getActor());
+//
+//        Movie movie5=(Movie) context.getBean("movie3");
+//        System.out.println(movie5.getActor());
+        ((ClassPathXmlApplicationContext) context).close();
     }
 }

@@ -5,56 +5,32 @@
        xsi:schemaLocation = "http://www.springframework.org/schema/beans
   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <!--creating bean for movie (property based injection)-->
-    <bean id="movie" class="com.stackroute.domain.Movie" >
-        <property name="actor" ref="actor"></property>
-    </bean>
-    <!--creating bean for actor (property based injection)-->
-    <bean id="actor" class="com.stackroute.domain.Actor">
-        <constructor-arg name="name" value="meghana"></constructor-arg>
-        <constructor-arg name="gender" value="female"></constructor-arg>
-        <constructor-arg name="age" value="22"></constructor-arg>
-    </bean>
-    <!--creating 3 beans of actor (construction based injection)-->
-    <bean id="movie1" class="com.stackroute.domain.Movie">
-        <constructor-arg name="actor" ref="actor1"></constructor-arg>
-    </bean>
-    <bean id="actor1" class="com.stackroute.domain.Actor">
-        <constructor-arg name="name" value="meghana"></constructor-arg>
-        <constructor-arg name="gender" value="female"></constructor-arg>
-        <constructor-arg name="age" value="22"></constructor-arg>
+    <bean id="actor1" class="com.stackroute.domain.Actor" >
+        <property name="name" value="Vicky Kaushal"></property>
+        <property name="gender" value="Male"></property>
+        <property name="age" value="30"></property>
     </bean>
 
-    <bean id="movie2" class="com.stackroute.domain.Movie">
-        <constructor-arg index="0" ref="actor2"></constructor-arg>
-    </bean>
-    <bean id="actor2" class="com.stackroute.domain.Actor">
-        <constructor-arg index="0" value="meghana"></constructor-arg>
-        <constructor-arg index="1" value="female"></constructor-arg>
-        <constructor-arg index="2" value="22"></constructor-arg>
+    <bean id="movie1" class="com.stackroute.domain.Movie" >
+        <property name="actor" ref="actor1"></property>
     </bean>
 
-    <bean id="movie3" class="com.stackroute.domain.Movie" scope="prototype">
-        <constructor-arg index="0" ref="actor3"></constructor-arg>
-    </bean>
+    <!--<bean id="actor" class="com.stackroute.domain.Actor" >-->
+    <!--<property name="name" value="Shahrukh"></property>-->
+    <!--<property name="gender" value="Male"></property>-->
+    <!--<property name="age" value="45"></property>-->
+    <!--</bean>-->
+    <!--<bean id="movie2" class="com.stackroute.domain.Movie" autowire="byName"></bean>-->
 
-    <!--this creates an UnsatisfiedDependencyException-->
-    <!--<bean id="movie3" class="com.stackroute.domain.Movie" scope="prototype" autowire="byType">-->
-    <!--&lt;!&ndash;<constructor-arg index="0" ref="actor3"></constructor-arg>&ndash;&gt;-->
+    <!--<bean id="movie3" class="com.stackroute.domain.Movie">-->
+    <!--<constructor-arg name="actor" ref="actor1"></constructor-arg>-->
     <!--</bean>-->
 
-    <bean id="actor3" class="com.stackroute.domain.Actor">
-        <constructor-arg type="String" value="meghana"></constructor-arg>
-        <constructor-arg type="String" value="female"></constructor-arg>
-        <constructor-arg type="int" value="22"></constructor-arg>
+    <bean id="actor2" class="com.stackroute.domain.Actor" >
+        <property name="name" value="Ranbir"></property>
+        <property name="gender" value="Male"></property>
+        <property name="age" value="34"></property>
     </bean>
 
-    <bean name="movieA,movieB" class="com.stackroute.domain.Movie" scope="prototype">
-        <constructor-arg index="0" ref="actorAB"></constructor-arg>
-    </bean>
-    <bean id="actorAB" class="com.stackroute.domain.Actor">
-        <constructor-arg type="String" value="meghana"></constructor-arg>
-        <constructor-arg type="String" value="female"></constructor-arg>
-        <constructor-arg type="int" value="22"></constructor-arg>
-    </bean>
+    <bean id="BeanLifecycleDemoBean" class="com.stackroute.domain.BeanLifecycleDemoBean" init-method="customInit" destroy-method="customDestroy"></bean>
 </beans>

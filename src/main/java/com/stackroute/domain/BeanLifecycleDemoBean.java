@@ -13,4 +13,14 @@ public class BeanLifecycleDemoBean  implements InitializingBean, DisposableBean 
         System.out.println("this is afterproperties set");
 
     }
+
+    public void customInit() throws Exception {
+        System.out.println("inside customInit");
+
+    }
+
+    public void customDestroy() throws Exception {
+        System.out.println("inside customDestroy");
+
+    }
 }
