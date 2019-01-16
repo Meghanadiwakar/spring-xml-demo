@@ -18,41 +18,40 @@
 
 
 
-    <!--creating 3 beans of actor (construction based injection)-->
-    <bean id="movie1" class="com.stackroute.domain.Movie">
-        <constructor-arg name="actor" ref="actor1"></constructor-arg>
-    </bean>
-    <bean id="actor1" class="com.stackroute.domain.Actor">
-        <constructor-arg name="name" value="meghana"></constructor-arg>
-        <constructor-arg name="gender" value="female"></constructor-arg>
-        <constructor-arg name="age" value="22"></constructor-arg>
+
+
+    <bean id="actor2" class="com.stackroute.domain.Actor" >
+        <constructor-arg name="name"  value="Deepika Padukone"></constructor-arg>
+        <constructor-arg name="gender" value="Female"></constructor-arg>
+        <constructor-arg name="age" value="33"></constructor-arg>
     </bean>
 
-    <bean id="movie2" class="com.stackroute.domain.Movie">
-        <constructor-arg index="0" ref="actor2"></constructor-arg>
-    </bean>
-    <bean id="actor2" class="com.stackroute.domain.Actor">
-        <constructor-arg index="0" value="rahul"></constructor-arg>
-        <constructor-arg index="1" value="female"></constructor-arg>
-        <constructor-arg index="2" value="22"></constructor-arg>
+    <bean id="actor3" class="com.stackroute.domain.Actor" >
+        <constructor-arg index="0"  value="Ranveer Singh"></constructor-arg>
+        <constructor-arg index="1" value="Male"></constructor-arg>
+        <constructor-arg index="2" value="33"></constructor-arg>
     </bean>
 
-    <bean id="movie3" class="com.stackroute.domain.Movie" scope="prototype">
-        <constructor-arg index="0" ref="actor3"></constructor-arg>
+    <bean id="actor4" class="com.stackroute.domain.Actor" >
+        <constructor-arg type="String" value="Alia Bhatt"></constructor-arg>
+        <constructor-arg type="String" value="Female"></constructor-arg>
+        <constructor-arg type="int" value="25"></constructor-arg>
     </bean>
-    <bean id="actor3" class="com.stackroute.domain.Actor">
-        <constructor-arg type="String" value="hima"></constructor-arg>
-        <constructor-arg type="String" value="female"></constructor-arg>
-        <constructor-arg type="int" value="22"></constructor-arg>
+
+    <bean id="movie1" class="com.stackroute.domain.Movie" >
+        <property name="actor" ref="actor1"></property>
     </bean>
-<!--bean having two values-->
-    <bean name="movieA,movieB" class="com.stackroute.domain.Movie" scope="prototype">
-        <constructor-arg index="0" ref="actorAB"></constructor-arg>
+
+    <bean id="movie2" class="com.stackroute.domain.Movie" scope="prototype">
+        <constructor-arg name="actor" ref="actor2"></constructor-arg>
     </bean>
-    <bean id="actorAB" class="com.stackroute.domain.Actor">
-        <constructor-arg type="String" value="meghana"></constructor-arg>
-        <constructor-arg type="String" value="female"></constructor-arg>
-        <constructor-arg type="int" value="22"></constructor-arg>
+
+    <bean name="movieA,movieB" class="com.stackroute.domain.Movie" >
+        <constructor-arg name="actor" ref="actor3"></constructor-arg>
+    </bean>
+
+    <bean id="movie4" class="com.stackroute.domain.Movie" >
+        <constructor-arg name="actor" ref="actor4"></constructor-arg>
     </bean>
 
 
