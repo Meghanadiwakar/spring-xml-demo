@@ -27,7 +27,7 @@
     <!--</bean>-->
 
     <bean id="actor2" class="com.stackroute.domain.Actor" >
-        <property name="name" value="Ranbir"></property>
+        <property name="name" value="Vin diesel"></property>
         <property name="gender" value="Male"></property>
         <property name="age" value="34"></property>
     </bean>
