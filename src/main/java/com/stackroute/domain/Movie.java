@@ -1,6 +1,8 @@
 package com.stackroute.domain;
 
 public class Movie {
+  private  Actor actor;
+
     public Actor getActor() {
         return actor;
     }
@@ -9,5 +11,5 @@ public class Movie {
         this.actor = actor;
     }
 
-    private Actor actor;
+
 }
