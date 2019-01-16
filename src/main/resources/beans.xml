@@ -16,13 +16,13 @@
         <property name="age" value="22"></property>
     </bean>
 
+
+
     <bean id="actor1" class="com.stackroute.domain.Actor" >
-        <constructor-arg name="name"  value="Deepika Padukone"></constructor-arg>
+        <constructor-arg name="name"  value="jennifer Aniston"></constructor-arg>
         <constructor-arg name="gender" value="Female"></constructor-arg>
         <constructor-arg name="age" value="33"></constructor-arg>
     </bean>
-
-
 
 
     <bean id="actor2" class="com.stackroute.domain.Actor" >
@@ -38,7 +38,7 @@
     </bean>
 
     <bean id="actor4" class="com.stackroute.domain.Actor" >
-        <constructor-arg type="String" value="Alia Bhatt"></constructor-arg>
+        <constructor-arg type="String" value="anne hathaway"></constructor-arg>
         <constructor-arg type="String" value="Female"></constructor-arg>
         <constructor-arg type="int" value="25"></constructor-arg>
     </bean>
