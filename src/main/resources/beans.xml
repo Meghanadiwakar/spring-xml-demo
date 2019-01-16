@@ -7,8 +7,8 @@
 
     <bean id="actor1" class="com.stackroute.domain.Actor" >
         <property name="name" value="manu"></property>
-        <property name="gender" value="Male"></property>
-        <property name="age" value="30"></property>
+        <property name="gender" value="female"></property>
+        <property name="age" value="22"></property>
     </bean>
 
     <bean id="movie1" class="com.stackroute.domain.Movie" >
