@@ -16,31 +16,22 @@ public class Main {
     public static void main(String[] args) {
 
 
-        //using bean factory
+        //Using XmlBeanFactory
         BeanFactory beanFactory=new XmlBeanFactory(new ClassPathResource("beans.xml"));
-        Movie movie=(Movie) beanFactory.getBean("movie");
-        Actor actor = movie.getActor();
-        System.out.println(actor.getName()+" "+actor.getAge()+" "+actor.getGender());
+        Movie movie1=(Movie) beanFactory.getBean("movie1");
+        System.out.println("Using XmlBeanFactory: "+ movie1.getActor());
 
-
-        //using bean BeanDefinitionRegistry and  BeanDefinitionReader
-
-
-        BeanDefinitionRegistry beanDefinitionRegistry = new DefaultListableBeanFactory();
-        BeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanDefinitionRegistry);
+        //Using Spring 3.2 BeanDefinitionRegistry and BeanDefinitionReader
+        BeanDefinitionRegistry beanDefinitionRegistry=new DefaultListableBeanFactory();
+        BeanDefinitionReader beanDefinitionReader=new XmlBeanDefinitionReader(beanDefinitionRegistry);
         beanDefinitionReader.loadBeanDefinitions(new ClassPathResource("beans.xml"));
-        Movie movie1 = ((DefaultListableBeanFactory) beanDefinitionRegistry).getBean(Movie.class);
-        Actor actor1 = movie.getActor();
-        System.out.println(actor1.getName()+" "+actor1.getAge()+" "+actor1.getGender());
+        Movie movie2=(Movie)((DefaultListableBeanFactory) beanDefinitionRegistry).getBean("movie1");
+        System.out.println("Using Spring 3.2 BeanDefinitionRegistry and BeanDefinitionReader: "+movie2.getActor());
 
-
-//using application Context
-
-        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-        Movie movie2 = context.getBean(Movie.class);
-        Actor actor2 = movie.getActor();
-        System.out.println(actor2.getName()+" "+actor2.getAge()+" "+actor2.getGender());
-
+        //Using ApplicationContext
+        ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
+        Movie movie3=(Movie) context.getBean("movie1");
+        System.out.println("Using ApplicationContext: "+ movie3.getActor());
 
     }
 }
